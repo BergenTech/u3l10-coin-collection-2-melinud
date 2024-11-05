@@ -66,9 +66,6 @@ function drawObstacle() {
 // Basic left/right movement provided
 function movePlayer() {
 
-  if(playerX < 0 || playerX > width || playerY < 0 || playerY > height){
-  }
-  else{
     if (keyIsDown(LEFT_ARROW)) {
       playerX -= 5;
     }
@@ -81,7 +78,6 @@ function movePlayer() {
     if (keyIsDown(DOWN_ARROW)) {
       playerY += 5;
     }
-  }
   
   // TODO: Add up/down movement
   // HINT: Use UP_ARROW and DOWN_ARROW keys
@@ -106,6 +102,15 @@ function moveObstacle() {
 }
 
 function checkCoinCollection() {
+  if (dist(playerX,playerY,coinX,coinY)<15){
+    score++
+    coinX = random(0,width)
+    coinY = random(0,height)
+    drawCoin()
+    obstacleX = random(0, width)
+    obstacleY = 0
+    obstacleSpeed+=0.5
+  }
   // TODO: Check if player touches coin
   // HINT: Use dist(playerX, playerY, coinX, coinY)
   // If distance < 15:
