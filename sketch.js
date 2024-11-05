@@ -5,7 +5,7 @@ let obstacleX, obstacleY;
 let score = 0;
 let gameOver = false;
 let obstacleSpeed = 1
-
+hits = 0
 function setup() {
   createCanvas(400, 400);
   initializeGame();
@@ -120,6 +120,11 @@ function checkCoinCollection() {
 }
 
 function checkCollisions() {
+  if(dist(playerX,playerY,obstacleX,obstacleY)<20){
+    hits++
+    obstacleX = random(0, width)
+    obstacleY = 0
+  }
   // TODO: Check if player hits obstacle
   // HINT: Similar to coin collection
   // If hit (distance < 20):
@@ -131,7 +136,9 @@ function checkCollisions() {
 function displayStats() {
   fill(0);
   textSize(16);
-  text("Score: " + score, 10, 20);
+  text("Score: " + score, width/5, 20);
+  text("Hits: " + hits, 2*width/5, 20)
+  text("Speed: " + obstacleSpeed, 3*width/5, 20)
   // TODO: Add display for hits and speed
 }
 
