@@ -136,15 +136,23 @@ function checkCollisions() {
 }
 
 function displayStats() {
+  textAlign(CENTER, CENTER)
   fill(0);
   textSize(16);
-  text("Score: " + score, width/5, 20);
-  text("Hits: " + hits, (2*width/5)+10, 20)
-  text("Speed: " + obstacleSpeed, 3*width/5, 20)
+  text("Score: " + score, width/4, 20);
+  text("Hits: " + hits, width/2, 20)
+  text("Speed: " + obstacleSpeed, 3*width/4, 20)
   // TODO: Add display for hits and speed
 }
 
 function displayGameOver() {
+  textAlign(CENTER, CENTER)
+  textSize(50)
+  text("Game Over", width/2, (height/2)-20)
+  textSize(30)
+  text("Final Score: " + score, width/2, (height/2)+30)
+  textSize(16)
+  text("Press R to restart", width/2, (height/2)+60)
   // TODO: Show game over screen
   // HINT: Use textAlign(CENTER, CENTER)
   // Show:
